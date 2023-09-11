@@ -1,0 +1,10 @@
+{
+    "sections":
+    {"template":
+    {"type":"template-afterVote",
+    "settings":{
+
+    }
+ 
+    }},
+    "order":["template"] } 

@@ -1,0 +1,117 @@
+
+
+{% stylesheet %}
+           img{
+            max-width: 100%;
+          }
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+         }
+     
+   /* Hero Banner */
+        .heroAboutUSBanner{
+            background-image: url("https://cdn.shopify.com/s/files/1/0731/0557/2152/files/2022-12-09-Dukes33071.jpg?v=1683568775");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          text-shadow: black 1px 1px;
+          color: #ffffff;
+          padding: 170px 0 170px;
+          font-family: Tungsten-Semibold,Arial Narrow,Arial,sans-serif;
+           
+        }
+      
+        .heroText{
+            color: #ffffff;
+            text-shadow: black 1px 1px;
+          font-size: 3em;
+          font-weight: 600;
+          font-family: Tungsten-Semibold,Arial Narrow,Arial,sans-serif;
+        }
+        /* End Hero Banner */
+        /* Shou our product Div */
+        .shopProductDiv{
+            background-image: url("https://cdn.shopify.com/s/files/1/0731/0557/2152/files/download_copy.jpg?v=1680187695");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          text-shadow: black 1px 1px;
+          color: #ffffff;
+          padding: 100px 0 100px;
+        }
+        .spdHeader{
+            font-size: 2em;
+            font-weight: 700;
+            color: #ffc82c;
+        }
+        .spdBtn{
+            background-color: #ed3526;
+            width: 200px;
+            display: block;
+            margin: auto;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 0 10px;
+            font-weight: 600;
+        
+        }
+        .spdBtn:hover{
+            background-color: #a5251a;
+           
+        }
+{% endstylesheet %}
+
+
+ <!-- Hero Banner -->
+   <div class="heroAboutUSBanner  text-center">
+    <div class="heroText">
+        <p>About Us</p>
+    </div>
+</div>
+<!-- End Hero Banner -->
+
+<div class="container">
+    <div class="row p-5">
+        <div class="col-md-8">
+            <p>
+                It was at  Camp Sevier in 1917 that the Duke’s Mayonnaise legacy began. Eugenia Duke of Greenville, SC, made sandwiches in her home kitchen to sell to army canteens during WWI.  Eugenia’s sandwiches (and the mayo that gave them their special flavor) were so unforgettably delicious that years after they’d left the camp, soldiers wrote to Eugenia begging for her sandwich recipes and jars of her delectable spread.  She began bottling it as a product on its own in 1923.  
+
+            </p>
+            <p>
+                Over the past 100 years, Duke’s  has continued to cultivate and celebrate its commitment to family recipes and bold, southern flavors.
+
+                
+            </p>
+            <p>
+                In addition to the flagship mayonnaise,  which is still made according to Eugenia’s original recipe in Greenville, SC, Duke’s offers light, olive oil, and flavored mayonnaise, tartar sauce, sandwich relish and regionally-inspired Duke’s Southern Sauces, mustards, and dressings.
+                
+            </p>
+        </div>
+        <div class="col-md-4">
+            <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Screenshot_2023-03-30_104440.png?v=1680187491" width="100%" height="auto" alt="black and white photo of lady sitting at desk" loading="lazy"> 
+        </div>
+
+    </div>
+
+
+</div>
+<div class="shopProductDiv text-center">
+    <p class="spdHeader">
+        Make Duke’s Your Full-Service Condiment Partner
+    </p>
+ 
+    <a href="https://dukesmayofoodservice.com/pages/products" style="text-decoration: none;">
+        <p class="spdBtn">
+            EXPLORE OUR PRODUCTS
+        </p>
+    </a>
+
+</div>
+{% schema %}
+  {
+    "name": "Section name",
+    "settings": []
+  }
+{% endschema %}
+{% javascript %}
+{% endjavascript %}

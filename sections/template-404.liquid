@@ -1,0 +1,75 @@
+
+
+
+
+ {% schema %}
+  {
+    "name": "Template 404",
+    "tag": "section",
+    "settings": [
+    ]
+  }
+
+  {% endschema %}
+  {% stylesheet %}
+ 
+   
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
+  
+
+
+
+
+{% comment %} <h1> 
+{{ section.settings.title }}
+</h1>
+<p>
+{{ section.settings.subtext_title }} TEST
+</p>
+https://cdn.shopify.com/s/files/1/0612/3552/7895/files/pexels-alleksana-6400005_copy.jpg?v=1675879679
+<div >
+    {% if section.settings.button_url == blank %}
+        {% assign shop_url = shop.secure_url %}
+    {% else %}
+        {% assign shop_url = section.settings.button_url %}
+    {% endif %}
+    <a href=" {{ shop_url }} "><button class="bg-gray-500 py-7"> {{ section.settings.button_label }}</button></a>
+</div>
+
+
+
+    {
+        "name": "Template 404",
+        "tag": "section",
+        "class": "flex items-center justify-center text-center py-7 h-screen",
+        "settings": [
+            {
+            "type": "text",
+                "id": "title",
+                "default": "404",
+                "label" : "404 Heading Title"
+        },
+        {
+            "type": "text",
+            "id" : "subtext_title",
+            "default" : "The page that you're looking for is not found",
+            "label": "404 Subtext Title "
+        },
+        {
+            "type": "text",
+            "id" : "button_label",
+            "default": "Back to homepage",
+            "label": "Button Label"
+        },
+        {
+            "type": "url",
+            "id": "button_url",
+            "label": "Button URL"
+        }
+        ]
+    
+    }
+ {% endcomment %}

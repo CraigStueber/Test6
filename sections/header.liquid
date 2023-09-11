@@ -1,0 +1,161 @@
+
+
+<div class="d-block d-md-none p-0">
+  <nav class="navbar mob-nav-bar fixed-top p-0">
+    <div class="container-fluid">
+     
+      <a class="navbar-brand p-0" href="/" >
+        <img class="navImgLogo " src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Dukes_Mayo_circle_BlackonWhite_copy.png?v=1684426132" width="200" height="" alt="Duke's Mayo Logo Black letters on White background" loading="lazy">
+    </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-light">{% render 'icon-hamburg' %}</span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title text-light fs-1" id="offcanvasDarkNavbarLabel">Duke's Mayo Food Service</h5>
+          <button type="button" class="btn-close btn-close-white text-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <div class="text-light">
+              <li class="nav-item">
+              <a href="/" class="nav-link text-light focusedLink">HOME </a>
+              </li>
+              {% assign menu = linklists.left-menu%}
+              {% for link in menu.links %}
+                  <li class=" nav-item  ">
+                    <a href="{{ link.url }}" class="nav-link text-light focusedLink ">{{ link.title }}</a>
+                    {% if link.links != blank %}
+                     
+                      {% for sub_link in link.links %} 
+                        <div>
+                          <a role="menuitem" class="nav-link text-light px-2 focusedLink" href="{{ sub_link.url }}" aria-label="{{sub_link.title}}">{{ sub_link.title }}</a>
+                        </div>
+                      {% endfor %}
+                   
+                 
+                    {% endif %}
+                    
+                  </li>
+              {% endfor %}
+            </div>
+            <div class="">
+              {% assign menu = linklists.right-menu%}
+              {% for link in menu.links %}
+                  <li class=" nav-item ">
+                    <a href="{{ link.url }}" class="nav-link text-light focusedLink">{{ link.title }}</a>
+                    {% if link.links != blank %}
+                     
+                      {% for sub_link in link.links %}
+                        <div>
+                          <a role="menuitem" class="nav-link text-light px-2 focusedLink" href="{{ sub_link.url }}" aria-label="{{sub_link.title}}">{{ sub_link.title }}</a>
+                        </div>
+                      {% endfor %}
+                   
+                 
+                    {% endif %}
+                  </li>
+              {% endfor %}
+            </div>
+           
+          </ul>
+       
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+
+<header class="topDivHeader d-none d-md-block">
+
+  <nav class="nav_bar_class fixed-top"  >
+      <div class="container ">
+
+       <div class="row  ">
+        <div class="col-3 col-md-4">
+     <div class="row py-md-4 ">
+              {% assign menu = linklists.left-menu%}
+            {% for link in menu.links %}
+              <div class="col-6 text-center">
+            <div class="drpdwn  ">
+              <a href="{{link.url}}"class="drpbtn {% if link.active == true%} activeMenuLink {% endif %}"> {{ link.title }}</a>
+                {% if link.links != blank %}
+                  <div class="drp-wrpper">
+                  <div class="drpdwn-cntnt">
+                  {% for child_link in link.links %}
+                    {% if child_link.title == 'RECIPES' %}
+                      <a role="menuitem" class="text-start {% if link.active == true%} activeMenuLink {% endif %}" href="{{ child_link.url }}" aria-label="{{child_link.title}}" target="_blank">{{ child_link.title }}</a>
+                     {% else %}
+                     <a role="menuitem" class="text-start {% if link.active == true%} activeMenuLink {% endif %}" href="{{ child_link.url }}" aria-label="{{child_link.title}}">{{ child_link.title }}</a>
+                    {% endif %}
+                      {% comment %} {% if child_link.links != blank %}
+                        <div class="grandchildDiv">
+                          {%for grandchild in child_link.links%}
+                            <a role="menuitem" class="text-start" href="{{ grandchild.url}}" aria-label="{{grandchild.url}}">{{ grandchild.title}} </a>
+                        {% endfor%}
+                        </div>
+                      {% endif %} {% endcomment %}
+                  {% endfor %}
+                </div></div>
+             
+                {% endif %}
+                
+            </div>
+          </div>
+        {% endfor %}
+            </div> 
+     
+        
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="text-center">
+              <a href="/" >
+                  <img class="navImgLogo" src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Dukes_Mayo_circle_BlackonWhite_copy.png?v=1684426132" width="200" height="" alt="Duke's Mayo Logo Black letters on White background" loading="lazy">
+              </a>
+          </div>
+        </div>
+          <div class="col-3 col-md-4 ">  
+          <div> 
+          <div class="row py-md-4 ">
+            {% assign menu = linklists.right-menu%}
+            {% for link in menu.links %}
+              <div class="col-6 text-center">
+            <div class="drpdwn ">
+                <a href="{{link.url}}"class="drpbtn {% if link.active == true%} activeMenuLink {% endif %}"> {{ link.title }}</a>
+                {% if link.links != blank %}
+                  <div class="drp-wrpper">
+                  <div class="drpdwn-cntnt">
+                    {% for child_link in link.links %}
+                      <a role="menuitem" class="text-start {% if link.active == true%} activeMenuLink {% endif %}" href="{{ child_link.url }}" aria-label="{{child_link.title}}">{{ child_link.title }}</a>
+                      {% comment %} {% if child_link.links != blank %}
+                        <div class="drpdwn-cntnt">
+                          {%for grandchild in child_link.links%}
+                            <a role="menuitem" class="text-start" href="{{ grandchild.url}}" aria-label="{{grandchild.url}}">{{ grandchild.title}} </a>
+                        {% endfor%}
+                        </div>
+                      {% endif %} {% endcomment %}
+                  {% endfor %}
+                </div></div>
+             
+      {% endif %}
+                
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div></div>
+    </div>
+
+    
+
+  </nav>
+
+
+</header>
+
+
+
+
+
+

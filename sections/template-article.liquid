@@ -1,0 +1,11 @@
+
+
+
+<header role="banner" class="mt-5 pt-5 text-center">
+    <h1>{{ article.title }}</h1>
+    {% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+  </header>
+<div class="container mb-5">
+  <div  class="p-5" style="color: black;">
+    {{ article.content }}
+  </div> </div>

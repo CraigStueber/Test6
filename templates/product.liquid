@@ -1,0 +1,404 @@
+
+{% assign featured_image = product.featured_image %}
+{% assign nutrition = product.metafields.global.nutrition %} 
+{% assign ingrediants = product.metafields.global.ingrediants %}
+{% assign glutenFree = product.metafields.global.glutenfree %}
+{% assign HFCS = product.metafields.global.hfcs %}
+{% assign NoAddedSugar = product.metafields.global.noaddedsugar %}
+{% assign Vegan = product.metafields.global.vegan %}
+{% assign NoMSG = product.metafields.global.nomsg %}
+{% assign CertU = product.metafields.global.certU %}
+{% comment %} Item Info Assignments {% endcomment %}
+{% assign itemnum = product.metafields.global.itemnumber %}
+{% assign itemsize = product.metafields.global.size %}
+{% assign grossweight = product.metafields.global.grossweight %}
+{% assign netweight = product.metafields.global.netweight %}
+{% assign lwh = product.metafields.global.lwh %}
+{% assign cube = product.metafields.global.cube %}
+{% assign tihi = product.metafields.global.tihi %}
+{% assign shelflife = product.metafields.global.shelflife %}
+{% assign upc = product.metafields.global.ups %}
+{% assign gtin = product.metafields.global.gtin %}
+
+<div class="container" style="font-family: Tungsten-Semibold;">
+  <div class="row">
+    <div class="col-lg-5">
+      <img src="{{ featured_image | img_url: '1000x' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg" loading="lazy" width="" height="">
+
+
+    </div>
+    <div class="col-lg-7 mt-5">
+      <p id="ProductTitle">{{ product.title }}</p>
+
+      <div><p class="productDescription">{{ product.description }}</p></div>
+      {% if glutenFree%}
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons_2023-02.png?v=1689699040"
+            width="" height=""
+            alt="Gluten Free"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      {% if HFCS%}
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons_2023-01.png?v=1689699040"
+            width="" height=""
+            alt="No HFCS"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      
+      {% if NoMSG%}
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons-06.png?v=1689699040"
+            width="" height=""
+            alt="Vegan"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      {% if CertU%} 
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons_2023-03.png?v=1689699040"
+            width="" height=""
+            alt="Kosher"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      {% if NoAddedSugar%}
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons_2023-04.png?v=1689699040"
+            width="" height=""
+            alt="No Added Sugar"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      {% if Vegan%}
+        <div>
+          <img src="https://cdn.shopify.com/s/files/1/0731/0557/2152/files/Product_cert_icons_2023-05.png?v=1689699193"
+            width="" height=""
+            alt="Vegan"
+            loading="lazy"
+            class="certPhotos">
+        </div>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+
+{% comment %} Product Information {% endcomment %}
+<div>
+  <p class="prodInfoHeader my-4" style="font-family: Tungsten-Semibold;"> PRODUCT INFORMATION </p>
+</div>
+
+
+
+<div class="tab text-center d-block d-lg-none">
+  <button class="text-center tablinks" onclick="openCity(event, 'ItemInfo')">Item Info</button>
+  <button class="text-center tablinks active" onclick="openCity(event, 'NutritionFacts')">Nutrition Facts</button>
+  <button class="text-center tablinks" onclick="openCity(event, 'Ingredients')">Ingredients</button>
+</div>
+<div class="tab text-center d-none d-lg-block">
+  <button class="text-center tablinks lgTabLinks" onclick="openCity(event, 'ItemInfo')">Item Info</button>
+  <button class="text-center tablinks active lgTabLinks" onclick="openCity(event, 'NutritionFacts')">Nutrition Facts</button>
+  <button class="text-center tablinks lgTabLinks" onclick="openCity(event, 'Ingredients')">Ingredients</button>
+</div>
+
+{% comment %} Item Info {% endcomment %}
+<div id="ItemInfo" class="tabcontent" style="font-family: Tungsten-Semibold;">
+  <h2 class="is-size-2 has-text-black text-center">ITEM INFO</h2>
+<div class="d-block d-lg-none">
+  <table class="itemInfoTable ">
+    <tr>
+      <th>ITEM # </th>
+      <td> {{itemnum}} </td>
+     
+    </tr>
+    <tr>
+      <th>CUBE </th>
+      <td>{{cube}} </td>
+
+    </tr>
+    <tr>
+      <th> SIZE </th>
+      <td> {{itemsize}} </td>
+      
+    </tr>
+    <tr>
+      <th> TI | HI </th>
+      <td> {{tihi}}</td>
+      
+    </tr>
+    <tr>
+      <th>GROSS WEIGHT  </th>
+      <td> {{ grossweight }}</td>
+     
+    </tr>
+    <tr>
+      <th>SHELFLIFE </th>
+      <td> {{ shelflife }}</td>
+  
+    </tr>
+    <tr>
+      <th>NET WEIGHT </th>
+      <td>{{ netweight }} </td>
+    
+    </tr>
+    <tr>
+      <th>UPC </th>
+      <td>{{ upc }} </td>
+   
+    </tr>
+    <tr>
+      <th>L x W x H </th>
+      <td>{{ lwh }} </td>
+    
+    </tr>
+    <tr>
+      <th>GTIN </th>
+      <td>{{ gtin }}</td>
+    </tr>
+
+
+  </table>
+</div>
+  <div class="d-none d-lg-block" style="font-family: Tungsten-Semibold;">
+  <table class="itemInfoTable  ">
+    <tr>
+      <th>ITEM # </th>
+      <td> {{itemnum}} </td>
+      <th>CUBE </th>
+      <td>{{cube}} </td>
+     
+    </tr>
+ 
+    <tr>
+      <th> SIZE </th>
+      <td> {{itemsize}} </td>
+      <th> TI | HI </th>
+      <td> {{tihi}}</td>
+      
+    </tr>
+  
+    <tr>
+      <th>GROSS WEIGHT  </th>
+      <td> {{grossweight}}</td>
+      <th>SHELFLIFE </th>
+      <td>{{shelflife}}</td>
+     
+    </tr>
+    
+    <tr>
+      <th>NET WEIGHT </th>
+      <td>{{netweight}} </td>
+      <th>UPC </th>
+      <td>{{upc}} </td>
+    
+    </tr>
+   
+    <tr>
+      <th>L x W x H </th>
+      <td>{{lwh}} </td>
+      <th>GTIN </th>
+      <td>{{gtin}}</td>
+    
+    </tr>
+  
+
+
+  </table>
+</div>
+</div>
+
+{% comment %} Ingredients {% endcomment %}
+
+<div id="Ingredients" class="tabcontent " style="font-family: Tungsten-Semibold;"> 
+    <div class="ingredientsPBM container my-5">
+      {% if ingrediants %}
+        <h2 class="is-size-2 has-text-black">Ingredients</h2>
+        <p class="ingredientsText">{{ ingrediants }}</p>
+      {% endif %}
+    </div>
+</div>
+{% comment %} Nutrition Facts {% endcomment %}
+<div id="NutritionFacts" class="tabcontent nfTabContent text-center">
+  {% if nutrition %}
+    <div class="columns product-boxes" data-tabs="nutritional">
+        <div style="width:100%; padding: 0 .75rem;">
+            <div class="nutritional-table">
+                <h2 class="is-size-2 has-text-black" style="font-family: Tungsten-Semibold;">Nutritional Facts</h2>
+              <img src=" {{ nutrition | img_url: '1000x'}}" alt="Nutritional Facts" loading="lazy" width="" height=""> 
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <h2 style="font-family: Tungsten-Semibold;"> Nutritional Facts Coming Soon </h2>
+    {% endif %}</div> 
+{% comment %} Explore Products {% endcomment %}
+
+<div class="text-center my-5">
+  <a href="https://dukesmayofoodservice.com/pages/products" style="text-decoration: none;" class="exploreButton" style="font-family: Tungsten-Semibold;"> EXPLORE OUR PRODUCTS </a>
+</div>
+    {% style %}
+    .ingredientsText{
+      font-size: 1.5em;
+    }
+    .productDescription{
+      font-size: 1.8em;
+    }
+    #ProductTitle{
+      font-size: 3em;
+    }
+.green-color{
+  color: #55a546;
+}
+.heroBannerPBM{
+   width: 100vw;
+}
+/* PBM TEXT DIV */
+.PBMTextDiv{
+    text-align: center;
+    padding: 20px 0px 20px;
+    color: black;
+}
+.PBMTextHeader{
+    font-size: 3em;
+    font-weight: 700;
+    margin: 30px 0 30px;
+    color: black;
+}
+.PBMText{
+    font-size: 1.5em;
+    color: black;
+}
+
+.PBMTextSale{
+    font-size: 2em;
+    font-weight: 600;
+    margin: 30px 0 30px;
+    color: black;
+}
+/* Label Graphics */
+.labelGraphicsPBM{
+    width: 70%;
+    margin: 20px auto 40px;
+}
+.labelGraphicsMobilePBM{
+    width: 100%;
+    margin: 20px auto 40px;
+}
+/* Product Info */
+.prodInfoHeader{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 700;
+    color: black;
+}
+/* Tabs */
+
+
+.tab {
+  overflow: hidden;
+  border-top: 5px solid #000000;
+  border-bottom: 5px solid #000000;
+
+  color: black;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  display: block-inline;
+ 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  color: #ffc82c;
+}
+
+
+.tab button.active {
+  
+  color: #ed3526;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  margin: 20px auto 20px;
+  padding: 100px auto 100px;
+  border-top: none;
+}
+.nfTabContent{
+  display: block;
+}
+.nfImgPBM{
+  width: 300px;
+  display: block;
+  margin: 20px auto 20px;
+}
+.ingredientsPBM{
+  border: 2px solid black;
+  padding: 20px;
+}
+.ipbmHeader{
+  font-size: 1.4em;
+  font-weight: 600;
+
+}
+.ipbmText{
+  font-weight: 500;
+}
+
+.itemInfoTable th{
+  background-color: #ffc82c;
+  padding: 10px 20px 10px;
+  font-size: 1.8em;
+}
+.itemInfoTable td{
+  padding: 10px 20px 10px;
+  border-bottom: black 2px solid;
+  text-align: right;
+  font-size: 1.8em;
+}
+.exploreButton{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 10px 30px 10px;
+  font-size: 2em;
+  font-weight: 600;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+.exploreButton:hover{
+  background-color: #ffc82c;
+  color: black;
+}
+.itemInfoTable{
+  margin: 20px auto 20px !important;
+  font-size: 1em;
+}
+.lgTabLinks{
+  font-size: 1.5em;
+}
+.certPhotos{
+  height: 80px;
+  float: left;
+  margin: 10px 20px 10px;
+}
+{% endstyle %}

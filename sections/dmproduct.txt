@@ -1,0 +1,341 @@
+
+{% form "product", product %}
+
+
+<section class="section section-product" id="product-content" itemscope itemtype="http://schema.org/Product">
+    <meta itemprop="url" content="{{ shop.url }}{{ product.url }}" />
+    <meta itemprop="image" content="{{ product.featured_image.src | product_img_url: 'grande' }}" />
+
+    <div class="container is-max-desktop">
+        <div class="columns">
+            <div class="column">
+                <div class="product-image">
+                    <div class="product-photos">
+                      {% if product.images.size == 0 %}
+                      
+                        <div class="product-photo-container">
+                          <img src="{{ '' | product_img_url: 'grande' }}" alt="" />
+                        </div><!-- #product-photo-container -->
+                        
+                      {% else %}
+                          <div class="product-photo">
+                            <div class="product-photo-container">
+                                {% for image in product.images %}
+                                  <span class="gallery" data-nth="{{forloop.index0}}" rel="gallery">
+                                      <img data-zoomable src="{{ image.src | product_img_url: 'grande' }}" alt="{{ image.alt | escape }}" />
+                                  </span>
+                                {% endfor %}
+                                </div><!-- #product-photo-container -->
+                            
+                                {% if product.images.size > 1 %}
+                                <div class="product-photo-thumbs clearfix">
+                                {% for image in product.images %}
+                                <div class="product-photo-thumb" data-nth="{{forloop.index0}}">
+                                    <img src="{{ image.src | product_img_url: 'compact' }}" alt="{{ image.alt | escape }}" />
+                                </div>
+                                {% endfor %}
+                          </div>
+                        {% endif %}
+                      </div>
+
+                    {% endif %}
+                    </div>                  
+
+                </div>
+            
+            </div>
+            <div class="column">
+                <div class="content product-content">
+
+                    <div class="content" style="font-size: 1.1rem;">
+                        <h1 class="is-size-2 has-text-black">{{ product.title }}</h1>
+                          {% render 'okendo-reviews-product-rating-summary', product: product %}
+                        {{ product.description }}
+                    </div>
+
+
+                    <hr class="is-divider" data-content="Options">
+                  
+              {% if product.title == "Bayou Remoulade" %}
+             
+             {% elsif product.title == "Hickory Bourbon BBQ Sauce" %}
+             
+           
+              {% else %}
+                <div id="product-variants">
+                  <select id="product-select" name="id">
+                    {% for variant in product.variants %}
+                      <option value="{{ variant.id }}">
+                        {{ variant.title }} - {{ variant.price | money }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>                  
+                  	
+              {% endif %}
+                
+                  {% if product.title == "Duke's Real Mayonnaise" %}
+                   <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                  {% elsif product.title == "Duke's Light Mayonnaise" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                   {% elsif product.title == "Light Mayonnaise with Olive Oil" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                   {% elsif product.title == "Hint of Lime Mayonnaise" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                   {% elsif product.title == "Bacon & Tomato Flavored Mayo" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                   {% elsif product.title == "Habanero Garlic Flavored Mayo" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                       {% elsif product.title == "Cucumber Dill Flavored Mayo" %}
+                     <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                       {% elsif product.title == "Fire Roasted Red Pepper Flavored Mayo" %}
+                      <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                       {% elsif product.title == "Duke's Flavored Mayo Sampler" %}
+                       <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                        {% elsif product.title == "Duke's It's Got Twang! Sampler" %}
+                     <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                          {% elsif product.title == "Alabama-Style White BBQ Sauce" %}
+                      <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                          {% elsif product.title == "Mississippi Comeback Sauce" %}
+                       <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Southern Style Coleslaw Dressing" %}
+                     <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Spicy Coleslaw Dressing" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Creamy Potato Salad Dressing" %}
+                    <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Sandwich Relish" %}
+                      <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Tartar Sauce" %}
+                   <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                         {% elsif product.title == "Duke's It's Got Twang! Sampler" %}
+                      <p>
+                       <strong> Cold Weather Warning:</strong>  If you are shipping to a location that is experiencing cold weather, please consider delaying your order until temps are warmer. Mayonnaise and mayonnaise-based products can separate if they freeze in transit. While the product is still technically safe to consume, it will not look or taste appealing.
+                     </p>
+                  
+                  {% else %}
+                  
+                  	
+                  {% endif %}
+
+  {% if product.title == "Bayou Remoulade" %}
+
+ {% elsif product.title == "Hickory Bourbon BBQ Sauce" %}
+
+{% else %}
+
+                    <div class="field">
+                      <label class="label">Quantity</label>
+                      <div class="control">
+                       <input placeholder="1" id="quantity" name="quantity" type="number" value="1" min="1" max="1000" class="input is-medium" style="border-radius:0; border: 1px solid #dbdbdb;">
+                      </div>
+                    </div>
+                    <div class="columns is-vcentered">
+                        <div class="column">
+
+                            <p class="price is-size-4" id="product-prices" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                                <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+                                {% if product.available %}
+                                <divnk itemprop="availability" href="http://schema.org/InStock" />
+                                {% else %}
+                                <divnk itemprop="availability" href="http://schema.org/OutOfStock" />
+                                {% endif %}
+                              	{% if product.handle == "PLACE-Holder"%}
+                         		 <div></div>
+                         
+                          {% else %}
+                                  <span id="price-field" class="smooth prices">
+                                    {% if product.compare_at_price > product.price %}
+                                    <span class="product-price on-sale" itemprop="price">{{ product.price | money }}</span>&nbsp;<span class="product-compare-price">{{ product.compare_at_price_max | money }}</span>
+                                    {% else %}
+                                    <span class="product-price" itemprop="price">{{ product.price | money }}</span>
+                                    {% endif %}
+                                  </span>
+                              {% endif %}
+                            
+                            </p>
+
+                        </div>
+                        <div class="column has-text-centered">
+                            
+                          
+                          {% if product.handle == "Place-Holder"%}
+                         		 <div></div>
+                         
+                          	
+                          
+                          {% elsif product.available %}
+
+                            {% assign is_backordered = false %}
+                            {% if product.variants.size == 1 %}
+                              {% assign variant = product.variants.first %}
+                              {% if variant.available and variant.inventory_management != blank and variant.inventory_quantity <= 0 %}
+                                {% assign is_backordered = true %}
+                              {% endif %}
+                            {% endif %}
+                            <div id="backorder"{% unless is_backordered %} class="hidden"{% endunless %}>
+                            <p>{{ settings.back_order_msg | replace: '%s', '<span id="selected-variant"></span>' }}</p>
+                            </div>
+                            
+                            <div id="product-add">
+                                <div id="product-add-wrap">
+                                    <div id="product-add-medallion" class=""></div><!-- #product-add-medallion -->
+                                    <input type="submit" name="add" id="add" value="Add to cart" class="button is-fullwidth is-large is-red">
+                                </div><!-- #product-add-wrap -->
+                            </div>
+                                
+                        {% else %}
+                        
+                            <div id="product-add">
+                                <div id="product-add-wrap">
+                                    <div id="product-add-medallion" class=""></div><!-- #product-add-medallion -->
+                                 
+                                    <input type="submit" name="add" disabled="disabled" value="Out of Stock" class="disabled  button is-fullwidth is-large is-success">
+                                </div><!-- #product-add-wrap -->
+                            </div>
+                                   
+                        {% endif %}
+                    </div>
+					
+                </div>
+    {%  endif  %}
+              <div>
+
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endform %}
+{% assign nutritional = product.metafields.global.nutritional %}
+{% assign ingredients = product.metafields.global.ingredients %}
+<section class="section section-products"> 
+    <div class="container is-max-widescreen">
+      <div class="block"> 
+        <h2>Product Information</h2>
+      </div>
+      <div class="tabs is-large is-centered">
+        <ul>
+            <li data-tab="reviews" class="is-active">
+                <a href="#">
+                    Reviews
+                </a>
+            </li>
+            {% if nutritional %}
+
+            <li data-tab="nutritional">
+                <a href="#">
+                Nutritional Facts
+                </a>
+            </li>
+          {% endif %}
+          {% if ingredients %}
+            <li data-tab="ingredients">
+                <a href="#">
+                Ingredients
+                </a>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+      <div class="tab-block">
+        <div class="columns product-boxes is-active" data-tabs="reviews">
+            <div style="width:100%; padding: 0 .75rem;" class="is-max-desktop">
+                <h2 class="is-size-2 has-text-black">Reviews:</h2>
+                {% render 'okendo-reviews-widget', product: product %}
+            </div>
+        </div>
+        {% if nutritional %}
+        <div class="columns product-boxes" data-tabs="nutritional">
+            <div style="width:100%; padding: 0 .75rem;">
+                <div class="nutritional-table">
+                    <h2 class="is-size-2 has-text-black">Nutritional Facts</h2>
+                    {{nutritional}}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% if ingredients %}
+        <div class="columns product-boxes" data-tabs="ingredients">
+            <div style="width:100%; padding: 0 .75rem;">
+                <div class="nutritional-table">
+                    <h2 class="is-size-2 has-text-black">Ingredients</h2>
+                    <p>{{ingredients}}</p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  
+  
+  <script>
+    // <![CDATA[
+    var selectCallback = function(variant, selector) {
+      if (variant) {
+        if (variant.available) {
+          // Selected a valid variant that is available.
+          $('#add').removeClass('disabled').removeAttr('disabled').val('Add to Cart').fadeTo(200,1);
+        } else {
+          // Variant is sold out.
+          $('#add').val('Sold Out').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+        }
+        // Whether the variant is in stock or not, we can update the price and compare at price.
+        if ( variant.compare_at_price > variant.price ) {
+          $('#price-field').html('<span class="product-price on-sale">'+ Shopify.formatMoney(variant.price, "") +'</span>'+'&nbsp;<s class="product-compare-price">'+Shopify.formatMoney(variant.compare_at_price, "")+ '</s>');
+        } else {
+          $('#price-field').html('<span class="product-price">'+ Shopify.formatMoney(variant.price, "") + '</span>' );
+        }
+      } else {
+        // variant doesn't exist.
+        $('#add').val('Unavailable').addClass('disabled').attr('disabled', 'disabled').fadeTo(200,0.5);
+      }
+    }
+    // initialize multi selector for product
+    jQuery(function($) {
+        new Shopify.OptionSelectors("product-select", { product: {{ product | json }}, onVariantSelected: selectCallback });    });
+    // ]]>
+  </script>
